@@ -1,0 +1,23 @@
+<section class="login">
+    <form
+        fxLayout="column"
+        fxLayoutAlign="center center"
+        fxLayoutGap="10ox"
+        [formGroup]="loginForm"
+        (ngSubmit)="onSubmit()">
+        <mat-form-field>
+            <input placeholder="请输入用户名"
+            type="text" matInput formControlName="name">
+            <mat-error>用户名不得为空</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input placeholder="请输入密码"
+            type="password" matInput formControlName="password">
+            <mat-hint>请输入密码</mat-hint>
+            <mat-error>密码不得为空</mat-error>
+        </mat-form-field>
+
+        <button *ngIf="!isLoading" mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">Submit</button>
+        <mat-spinner *ngIf="isLoading"></mat-spinner>
+    </form>
+</section>

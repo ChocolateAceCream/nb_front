@@ -1,0 +1,67 @@
+<section class="signup-form">
+        <br>
+        <br>
+    <form fxLayout="column"
+          fxLayoutAlign="center center"
+          [formGroup] = "form"
+          (ngSubmit)="onSubmit(form)"
+          fxLayoutGap="10px">
+        <!-- <mat-form-field hintLabel="Choose from A1-10,B1-10,C1-10"> -->
+            <mat-form-field>
+            <input
+                  matInput
+                  placeholder="Device Id"
+                  formControlName="device_id">
+            <mat-error *ngIf="form.get('device_id').hasError('required')">Field must not be empty</mat-error>
+        </mat-form-field>
+
+        <mat-form-field >
+            <input
+                   matInput
+                  placeholder="Device Name"
+                  formControlName="device_name">
+            <mat-error *ngIf="form.get('device_name').hasError('required')">Field must not be empty</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <ngx-mat-file-input 
+                formControlName="file" 
+                placeholder="解析包"></ngx-mat-file-input>
+            <mat-icon matSuffix>folder</mat-icon>
+        </mat-form-field>
+
+        <!--
+		<mat-form-field>
+			<input
+				  placeholder="Choose a starting date"
+				  [matDatepicker]="picker"
+				  matInput
+				  required
+				  ngModel name="startingDate">
+			<mat-datepicker-toggle matSuffix [for]="picker" ></mat-datepicker-toggle>
+			<mat-datepicker #picker></mat-datepicker>
+		</mat-form-field>
+
+        <mat-form-field >
+            <input
+                matInput
+                placeholder="Enter a duration (Days)"
+                ngModel
+                required
+				type="number"
+                name="duration"
+                #duration="ngModel">
+            <mat-error *ngIf="duration.hasError('required')">Field must not be empty</mat-error>
+        </mat-form-field>
+        -->
+        <br>
+            <button
+                *ngIf="!isLoading"
+                [disabled]="form.invalid"
+                color="primary"
+                mat-raised-button
+                type="submit">Submit
+            </button>
+            <mat-spinner *ngIf="isLoading"></mat-spinner>
+    </form>
+</section>

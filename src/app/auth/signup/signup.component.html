@@ -1,0 +1,43 @@
+<section class="signup-form">
+    <form fxLayout="column" fxLayoutAlign="center center" #f="ngForm"
+                            (ngSubmit)="onSubmit(f)"
+                            fxLayoutGap="10px">
+        <mat-form-field>
+            <input
+                            type="text"
+                            matInput
+                            placeholder="用户名"
+                            ngModel
+                            name="name"
+                            required
+                            #nameInput="ngModel">
+            <mat-error *ngIf="nameInput.hasError('required')">Field must not be
+                empty</mat-error>
+        </mat-form-field>
+
+        <mat-form-field hintLabel="should be 6+ charactors">
+            <input
+                        type="password"
+                        matInput
+                        placeholder="密码"
+                        ngModel
+                        required
+                        minlength="6"
+                        name="password"
+                        #pwInput="ngModel">
+            <mat-hint align="end">{{ pwInput.value?.length}} / 6</mat-hint>
+            <br>
+            <mat-error>长度必须大于6</mat-error>
+        </mat-form-field>
+        <br>
+       <mat-checkbox
+            labelPosition="after"
+            required
+            ngModel name="agree"
+            >
+            同意条款
+        </mat-checkbox>
+        <button *ngIf="!isLoading" [disabled]="f.invalid" color="primary" mat-raised-button type="submit">Submit</button>
+        <mat-spinner *ngIf="isLoading"></mat-spinner>
+    </form>
+</section>

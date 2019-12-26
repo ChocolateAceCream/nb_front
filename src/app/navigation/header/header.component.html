@@ -1,0 +1,26 @@
+<mat-toolbar color="primary">
+    <div *ngIf="!isAuth">
+        <a routerLink="/" >软网关</a>
+    </div>
+    <div *ngIf="isAuth">
+        <a routerLink="/" >润一科技</a>
+    </div>
+    <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs >
+        <ul fxLayout class="navigation-items" fxLayoutGap="10px">
+            <li *ngIf="!isAuth">
+                <a routerLink="/signup">注册</a>
+            </li>
+            <li *ngIf="!isAuth">
+                <a routerLink="/login">登录</a>
+            </li>
+            <!--
+            <li *ngIf="isAuth">
+                <a routerLink="/training">软网关</a>
+            </li>
+            -->
+            <li *ngIf="isAuth">
+                <a style="cursor: pointer" (click)="onLogout()">登出</a>
+            </li>
+        </ul>
+    </div>
+</mat-toolbar>
