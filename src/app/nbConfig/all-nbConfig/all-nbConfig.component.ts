@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs';
 })
 export class AllNbConfigComponent implements OnInit,AfterViewInit {
 
-    displayedColumns = ['device_id','device_name'];
+    displayedColumns = ['deviceId','gatewayId'];
     dataSource = new MatTableDataSource<NbConfig>();
     interval: any;
     private reChangedSubscription: Subscription;

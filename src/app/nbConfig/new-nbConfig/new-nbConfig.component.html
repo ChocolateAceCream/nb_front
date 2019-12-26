@@ -11,16 +11,16 @@
             <input
                   matInput
                   placeholder="Device Id"
-                  formControlName="device_id">
-            <mat-error *ngIf="form.get('device_id').hasError('required')">Field must not be empty</mat-error>
+                  formControlName="deviceId">
+            <mat-error *ngIf="form.get('deviceId').hasError('required')">Field must not be empty</mat-error>
         </mat-form-field>
 
         <mat-form-field >
             <input
                    matInput
-                  placeholder="Device Name"
-                  formControlName="device_name">
-            <mat-error *ngIf="form.get('device_name').hasError('required')">Field must not be empty</mat-error>
+                  placeholder="Gateway Id"
+                  formControlName="gatewayId">
+            <mat-error *ngIf="form.get('gatewayId').hasError('required')">Field must not be empty</mat-error>
         </mat-form-field>
 
         <mat-form-field>

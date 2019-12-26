@@ -28,8 +28,8 @@ export class NewNbConfigComponent implements OnInit, OnDestroy {
 
 	ngOnInit() {
         this.form = new FormGroup({
-            device_id: new FormControl('', [Validators.required]),
-            device_name: new FormControl('', [Validators.required]),
+            deviceId: new FormControl('', [Validators.required]),
+            gatewayId: new FormControl('', [Validators.required]),
             file: new FormControl([])
         });
 
@@ -47,8 +47,8 @@ export class NewNbConfigComponent implements OnInit, OnDestroy {
             // date: form.value.startingDate.toString(),
             // duration: form.value.duration
             nbConfig:{
-                device_id: form.value.device_id,
-                device_name: form.value.device_name,
+                deviceId: form.value.deviceId,
+                gatewayId: form.value.gatewayId,
             },
             file: form.value.file.files[0]
         };

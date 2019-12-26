@@ -6,13 +6,13 @@
 </div>
 
 <mat-table [dataSource]="dataSource" matSort>
-    <ng-container matColumnDef="device_id">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>device id</mat-header-cell>
-        <mat-cell *matCellDef="let element">{{ element.device_id}}</mat-cell>
+    <ng-container matColumnDef="deviceId">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Device id</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element.deviceId}}</mat-cell>
     </ng-container>
-    <ng-container matColumnDef="device_name">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>device name</mat-header-cell>
-        <mat-cell *matCellDef="let element">{{ element.device_name}}</mat-cell>
+    <ng-container matColumnDef="gatewayId">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Gateway Id</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element.gatewayId}}</mat-cell>
     </ng-container>
     <!--
     <ng-container matColumnDef="startingDate">

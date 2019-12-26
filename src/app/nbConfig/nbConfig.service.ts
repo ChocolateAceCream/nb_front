@@ -35,7 +35,7 @@ export class NbConfigService {
         };
         this.http.post<Response>(
             `http://192.168.2.177:3002/rest/config/get`,
-            {device_id: "ab111"},
+            {deviceId: "ab111"},
             httpOptions
         ).toPromise()
         .then((results: Response) => {
@@ -52,8 +52,8 @@ export class NbConfigService {
         this.token = localStorage.getItem('accessToken');
         var data = new FormData();
         data.append("file", nbConfigData.file);
-        data.append("device_id", nbConfigData.nbConfig.device_id);
-        data.append("device_name", nbConfigData.nbConfig.device_name);
+        data.append("deviceId", nbConfigData.nbConfig.deviceId);
+        data.append("gatewayId", nbConfigData.nbConfig.gatewayId);
         this.uiService.loadingStateChanged.next(true);
         const httpOptions = {
             headers: new HttpHeaders({
