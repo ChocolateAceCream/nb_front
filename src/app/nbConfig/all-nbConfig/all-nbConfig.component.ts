@@ -11,7 +11,27 @@ import { Subscription } from 'rxjs';
 })
 export class AllNbConfigComponent implements OnInit,AfterViewInit {
 
-    displayedColumns = ['deviceId','gatewayId'];
+    displayedColumns = [
+        'deviceId',
+        'gatewayId',
+        'serviceType',
+        'serviceId',
+        'isParsing',
+        'parseField',
+        'parseJarClass',
+        'parseJarMethod',
+        'isBaseDecode',
+        'storageFields',
+        'isCallback',
+        'appId',
+        'method',
+        'callbackUrl',
+        'maxRetransmit',
+        'expireTime',
+        'callbackFieldsKey',
+        'callbackFieldsValues',
+        '操作'
+    ];
     dataSource = new MatTableDataSource<NbConfig>();
     interval: any;
     private reChangedSubscription: Subscription;

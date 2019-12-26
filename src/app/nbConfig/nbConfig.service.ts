@@ -54,6 +54,22 @@ export class NbConfigService {
         data.append("file", nbConfigData.file);
         data.append("deviceId", nbConfigData.nbConfig.deviceId);
         data.append("gatewayId", nbConfigData.nbConfig.gatewayId);
+        data.append("serviceType", nbConfigData.nbConfig.serviceType);
+        data.append("serviceId", nbConfigData.nbConfig.serviceId);
+        data.append("isParsing", nbConfigData.nbConfig.isParsing);
+        data.append("parseField", nbConfigData.nbConfig.parseField);
+        data.append("parseJarClass", nbConfigData.nbConfig.parseJarClass);
+        data.append("parseJarMethod", nbConfigData.nbConfig.parseJarMethod);
+        data.append("isBaseDecode", nbConfigData.nbConfig.isBaseDecode);
+        data.append("storageFields", nbConfigData.nbConfig.storageFields);
+        data.append("isCallback", nbConfigData.nbConfig.isCallback);
+        data.append("appId", nbConfigData.nbConfig.appId);
+        data.append("method", nbConfigData.nbConfig.method);
+        data.append("callbackUrl", nbConfigData.nbConfig.callbackUrl);
+        data.append("maxRetransmit", nbConfigData.nbConfig.maxRetransmit);
+        data.append("expireTime", nbConfigData.nbConfig.expireTime);
+        data.append("callbackFieldsKey", nbConfigData.nbConfig.callbackFieldsKey);
+        data.append("callbackFieldsValues", nbConfigData.nbConfig.callbackFieldsValues);
         this.uiService.loadingStateChanged.next(true);
         const httpOptions = {
             headers: new HttpHeaders({

@@ -22,6 +22,118 @@
                   formControlName="gatewayId">
             <mat-error *ngIf="form.get('gatewayId').hasError('required')">Field must not be empty</mat-error>
         </mat-form-field>
+        <mat-form-field >
+            <input
+                   matInput
+                  placeholder="Service Type"
+                  formControlName="serviceType">
+            <mat-error *ngIf="form.get('serviceType').hasError('required')">Field must not be empty</mat-error>
+        </mat-form-field>
+        <mat-form-field >
+            <input
+                   matInput
+                  placeholder="Service Id"
+                  formControlName="serviceId">
+            <mat-error *ngIf="form.get('serviceId').hasError('required')">Field must not be empty</mat-error>
+        </mat-form-field>
+        <mat-form-field >
+            <input
+                   matInput
+                  placeholder="Is Parsing"
+                  formControlName="isParsing">
+            <mat-error *ngIf="form.get('isParsing').hasError('required')">Field must not be empty</mat-error>
+        </mat-form-field>
+        <mat-form-field >
+            <input
+                   matInput
+                  placeholder="Parse Field"
+                  formControlName="parseField">
+            <mat-error *ngIf="form.get('parseField').hasError('required')">Field must not be empty</mat-error>
+        </mat-form-field>
+        <mat-form-field >
+            <input
+                   matInput
+                  placeholder="Parse Jar Class"
+                  formControlName="parseJarClass">
+            <mat-error *ngIf="form.get('parseJarClass').hasError('required')">Field must not be empty</mat-error>
+        </mat-form-field>
+        <mat-form-field >
+            <input
+                   matInput
+                  placeholder="Parse Jar Method"
+                  formControlName="parseJarMethod">
+            <mat-error *ngIf="form.get('parseJarMethod').hasError('required')">Field must not be empty</mat-error>
+        </mat-form-field>
+        <mat-form-field >
+            <input
+                   matInput
+                  placeholder="Is Base Decode"
+                  formControlName="isBaseDecode">
+            <mat-error *ngIf="form.get('isBaseDecode').hasError('required')">Field must not be empty</mat-error>
+        </mat-form-field>
+        <mat-form-field >
+            <input
+                   matInput
+                  placeholder="Storage Fields"
+                  formControlName="storageFields">
+            <mat-error *ngIf="form.get('storageFields').hasError('required')">Field must not be empty</mat-error>
+        </mat-form-field>
+        <mat-form-field >
+            <input
+                   matInput
+                  placeholder="Is Callback"
+                  formControlName="isCallback">
+            <mat-error *ngIf="form.get('isCallback').hasError('required')">Field must not be empty</mat-error>
+        </mat-form-field>
+        <mat-form-field >
+            <input
+                   matInput
+                  placeholder="App Id"
+                  formControlName="appId">
+            <mat-error *ngIf="form.get('appId').hasError('required')">Field must not be empty</mat-error>
+        </mat-form-field>
+        <mat-form-field >
+            <input
+                   matInput
+                  placeholder="Method"
+                  formControlName="method">
+            <mat-error *ngIf="form.get('method').hasError('required')">Field must not be empty</mat-error>
+        </mat-form-field>
+        <mat-form-field >
+            <input
+                   matInput
+                  placeholder="Callback Url"
+                  formControlName="callbackUrl">
+            <mat-error *ngIf="form.get('callbackUrl').hasError('required')">Field must not be empty</mat-error>
+        </mat-form-field>
+        <mat-form-field >
+            <input
+                   matInput
+                  placeholder="Max Retransmit"
+                  formControlName="maxRetransmit">
+            <mat-error *ngIf="form.get('maxRetransmit').hasError('required')">Field must not be empty</mat-error>
+        </mat-form-field>
+        <mat-form-field >
+            <input
+                   matInput
+                  placeholder="Expire Time"
+                  formControlName="expireTime">
+            <mat-error *ngIf="form.get('expireTime').hasError('required')">Field must not be empty</mat-error>
+        </mat-form-field>
+        <mat-form-field >
+            <input
+                   matInput
+                  placeholder="Callback Fields Key"
+                  formControlName="callbackFieldsKey">
+            <mat-error *ngIf="form.get('callbackFieldsKey').hasError('required')">Field must not be empty</mat-error>
+        </mat-form-field>
+        <mat-form-field >
+            <input
+                   matInput
+                  placeholder="Callback Fields Values"
+                  formControlName="callbackFieldsValues">
+            <mat-error *ngIf="form.get('callbackFieldsValues').hasError('required')">Field must not be empty</mat-error>
+        </mat-form-field>
 
         <mat-form-field>
             <ngx-mat-file-input 

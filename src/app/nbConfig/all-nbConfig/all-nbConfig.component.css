@@ -1,0 +1,8 @@
+mat-header-row{
+    background: rgb(243, 212, 212);
+}
+
+mat-cell:nth-child(odd){
+    background: rgba(184, 236, 226, 0.22);
+
+}

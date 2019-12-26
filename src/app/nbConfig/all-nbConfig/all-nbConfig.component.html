@@ -1,11 +1,11 @@
 <div fxLayoutAlign="center center">
     <mat-form-field fxFlex="40%">
         <input matInput type="text" (keyup)="doFilter($event.target.value)"
-        placeholder="Filter" >
+        placeholder="搜索" >
     </mat-form-field>
 </div>
 
-<mat-table [dataSource]="dataSource" matSort>
+<mat-table [dataSource]="dataSource" matSort >
     <ng-container matColumnDef="deviceId">
         <mat-header-cell *matHeaderCellDef mat-sort-header>Device id</mat-header-cell>
         <mat-cell *matCellDef="let element">{{ element.deviceId}}</mat-cell>
@@ -14,6 +14,82 @@
         <mat-header-cell *matHeaderCellDef mat-sort-header>Gateway Id</mat-header-cell>
         <mat-cell *matCellDef="let element">{{ element.gatewayId}}</mat-cell>
     </ng-container>
+    <ng-container matColumnDef="serviceType">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Service Type</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element.serviceType}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="serviceId">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Service Id</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element.serviceId}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="isParsing">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Is Parsing</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element.isParsing}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="parseField">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Parse Field</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element.parseField}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="parseJarClass">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Parse Jar Class</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element.parseJarClass}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="parseJarMethod">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Parse Jar Method</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element.parseJarMethod}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="isBaseDecode">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Is Base Decode</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element.isBaseDecode}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="storageFields">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Storage Fields</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element.storageFields}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="isCallback">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Is Callback</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element.isCallback}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="appId">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>App Id</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element.appId}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="method">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Method</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element.method}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="callbackUrl">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Callback Url</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element.callbackUrl}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="maxRetransmit">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Max Retransmit</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element.maxRetransmit}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="expireTime">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Expire Time</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element.expireTime}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="callbackFieldsKey">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Callback Fields Key</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element.callbackFieldsKey}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="callbackFieldsValues">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Callback Fields Values</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element.callbackFieldsValues}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="操作">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>操作</mat-header-cell>
+        <mat-cell *matCellDef="let element">
+            <button mat-button [matMenuTriggerFor]="menu">
+                <mat-icon>more_vert</mat-icon></button>
+                <mat-menu #menu="matMenu">
+                <button mat-menu-item>Item 1</button>
+                <button mat-menu-item>Item 2</button>
+                </mat-menu>
+        </mat-cell>
+    </ng-container>
+
     <!--
     <ng-container matColumnDef="startingDate">
         <mat-header-cell *matHeaderCellDef mat-sort-header>Starting Date</mat-header-cell>
