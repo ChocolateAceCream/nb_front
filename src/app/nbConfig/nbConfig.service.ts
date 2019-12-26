@@ -95,7 +95,8 @@ export class NbConfigService {
 
     }
 
-    cancelNbConfig() {
-
+    deleteNbConfig(deviceId: string) {
+        this.token = localStorage.getItem('accessToken');
+        
     }
 }

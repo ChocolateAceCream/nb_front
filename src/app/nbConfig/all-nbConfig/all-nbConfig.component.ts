@@ -60,6 +60,14 @@ export class AllNbConfigComponent implements OnInit,AfterViewInit {
         this.dataSource.filter = filterValue.trim().toLowerCase();
     }
 
+    onDelete(deviceId: string){
+        console.log(deviceId);
+    }
+
+    onEdit(nbConfig: NbConfig){
+        console.log(nbConfig);
+    }
+
     ngOnDestroy() {
         this.reChangedSubscription.unsubscribe();
     }
