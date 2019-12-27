@@ -33,9 +33,8 @@ export class NbConfigService {
                 'Authorization':`Bearer ${this.token}`
             })
         };
-        this.http.post<Response>(
+        this.http.get<Response>(
             `http://192.168.2.177:3002/rest/config/get`,
-            {deviceId: "ab111"},
             httpOptions
         ).toPromise()
         .then((results: Response) => {
@@ -97,6 +96,30 @@ export class NbConfigService {
 
     deleteNbConfig(deviceId: string) {
         this.token = localStorage.getItem('accessToken');
-        
+        var data = new FormData();
+        data.append("deviceId",deviceId)
+        this.uiService.loadingStateChanged.next(true);
+        const httpOptions = {
+            headers: new HttpHeaders({
+                // 'Content-Type':'application/x-www-form-urlencoded',
+                'Access-Control-Allow-Origin':"*",
+                'Authorization':`Bearer ${this.token}`
+            })
+        };
+        this.http.post<Response>(
+            `http://192.168.2.177:3002/rest/config/delete`,
+            data,
+            httpOptions
+        ).toPromise()
+        .then(result => {
+            console.log(result);
+            this.uiService.loadingStateChanged.next(false);
+            this.uiService.showSnackbar(result.msg,null,5000);
+            this.getAllNbConfigs();
+        })
+        .catch(error => {
+            this.uiService.loadingStateChanged.next(false);
+            this.uiService.showSnackbar(error.error.errors[0].detail,null,3000)
+        })
     }
 }

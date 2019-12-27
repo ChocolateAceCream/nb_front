@@ -61,7 +61,8 @@ export class AllNbConfigComponent implements OnInit,AfterViewInit {
     }
 
     onDelete(deviceId: string){
-        console.log(deviceId);
+        // console.log(deviceId);
+        this.nbConfigService.deleteNbConfig(deviceId);
     }
 
     onEdit(nbConfig: NbConfig){
