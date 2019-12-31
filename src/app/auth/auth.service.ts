@@ -6,6 +6,7 @@ import { User } from './user.model';
 import { AuthData } from './auth-data.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UIService } from'../shared/ui.service';
+import { GlobalVariable } from '../globals';
 import 'rxjs/add/operator/toPromise';
 
 //inject route service
@@ -39,8 +40,9 @@ export class AuthService {
 		// 	name: authData.name,
         //     password: authData.password
         // };
+        let url = GlobalVariable.base_path;
         this.http.post<AccessToken>(
-            `http://192.168.2.177:3002/user/signup`,
+            `${url}/user/signup`,
             {
                 username: authData.name,
                 password: authData.password
@@ -60,6 +62,7 @@ export class AuthService {
 
     login(authData: AuthData) {
         this.uiService.loadingStateChanged.next(true);
+        let url = GlobalVariable.base_path;
         const httpOptions = {
             headers: new HttpHeaders({
                 'Content-Type': 'application/json',
@@ -71,7 +74,7 @@ export class AuthService {
             password: authData.password
         };
         this.http.post<AccessToken>(
-            `http://192.168.2.177:3002/user/login`,
+            `${url}/user/login`,
             {
                 username: authData.name,
                 password: authData.password

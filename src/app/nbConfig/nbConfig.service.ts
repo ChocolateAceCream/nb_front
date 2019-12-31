@@ -8,6 +8,7 @@ import {NbFile} from './nbFile.model';
 
 import 'rxjs/add/operator/toPromise';
 import { FileInput } from 'ngx-material-file-input';
+import { GlobalVariable } from '../globals';
 
 @Injectable()
 export class NbConfigService {
@@ -26,6 +27,7 @@ export class NbConfigService {
 
     getAllNbConfigs() {
         this.token = localStorage.getItem('accessToken');
+        let url = GlobalVariable.base_path;
         const httpOptions = {
             headers: new HttpHeaders({
                 'Content-Type':'application/json',
@@ -34,7 +36,7 @@ export class NbConfigService {
             })
         };
         this.http.get<Response>(
-            `http://192.168.2.177:3002/rest/config/get`,
+            `${url}/rest/config/get`,
             httpOptions
         ).toPromise()
         .then((results: Response) => {
@@ -49,6 +51,7 @@ export class NbConfigService {
 
     newNbConfig(nbConfigData: NbFile) {
         this.token = localStorage.getItem('accessToken');
+        let url=GlobalVariable.base_path;
         var data = new FormData();
         data.append("file", nbConfigData.file);
         data.append("deviceId", nbConfigData.nbConfig.deviceId);
@@ -78,7 +81,7 @@ export class NbConfigService {
             })
         };
         this.http.post(
-            `http://192.168.2.177:3002/rest/config/uploadFile`,
+            `${url}/rest/config/uploadFile`,
             data,
             httpOptions
         ).toPromise()
