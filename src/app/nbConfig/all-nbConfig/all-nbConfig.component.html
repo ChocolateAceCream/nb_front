@@ -1,3 +1,17 @@
+<nav mat-tab-nav-bar>
+    <a mat-tab-link
+       [routerLink]="['/newConfig']"
+       routerLinkActive #rla1="routerLinkActive"
+       [active]="rla1.isActive">新建配置
+    </a>
+    <a mat-tab-link
+       [routerLink]="['/allConfig']"
+       routerLinkActive #rla2="routerLinkActive"
+       [active]="rla2.isActive">所有配置
+    </a>
+</nav>
+
+
 <div fxLayoutAlign="center center">
     <mat-form-field fxFlex="40%">
         <input matInput type="text" (keyup)="doFilter($event.target.value)"

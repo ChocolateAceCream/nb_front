@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UIService } from './shared/ui.service';
 import { NbConfigComponent } from './nbConfig/nbConfig.component';
 import { NewNbConfigComponent } from './nbConfig/new-nbConfig/new-nbConfig.component';
+import { EditNbConfigComponent } from './nbConfig/edit-nb-config/edit-nb-config.component';
 import { NbConfigService } from './nbConfig/nbConfig.service';
 import { AllNbConfigComponent } from './nbConfig/all-nbConfig/all-nbConfig.component';
 
@@ -29,6 +30,7 @@ import { AllNbConfigComponent } from './nbConfig/all-nbConfig/all-nbConfig.compo
         NbConfigComponent,
         NewNbConfigComponent,
         AllNbConfigComponent,
+        EditNbConfigComponent
     ],
     imports: [
         BrowserModule,
