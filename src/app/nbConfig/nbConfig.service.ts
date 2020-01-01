@@ -99,6 +99,7 @@ export class NbConfigService {
 
     deleteNbConfig(deviceId: string) {
         this.token = localStorage.getItem('accessToken');
+        let url=GlobalVariable.base_path;
         var data = new FormData();
         data.append("deviceId",deviceId)
         this.uiService.loadingStateChanged.next(true);
@@ -110,7 +111,7 @@ export class NbConfigService {
             })
         };
         this.http.post<Response>(
-            `http://192.168.2.177:3002/rest/config/delete`,
+            `${url}/rest/config/delete`,
             data,
             httpOptions
         ).toPromise()
