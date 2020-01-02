@@ -3,6 +3,7 @@ import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 import { NbConfig } from '../nbConfig.model';
 import { NbConfigService } from '../nbConfig.service';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-all-nbConfig',
@@ -39,7 +40,10 @@ export class AllNbConfigComponent implements OnInit,AfterViewInit {
     @ViewChild(MatSort, {static: true}) sort: MatSort;
     @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
-    constructor(private nbConfigService: NbConfigService) { }
+    constructor(
+        private nbConfigService: NbConfigService,
+        private router: Router,
+    ) { }
 
     ngOnInit() {
         this.nbConfigService.getAllNbConfigs();
@@ -66,7 +70,9 @@ export class AllNbConfigComponent implements OnInit,AfterViewInit {
     }
 
     onEdit(nbConfig: NbConfig){
-        console.log(nbConfig);
+        this.router.navigate(['/editConfig']);
+        this.nbConfigService.onEditConfig(nbConfig);
+        // console.log(nbConfig);
     }
 
     ngOnDestroy() {

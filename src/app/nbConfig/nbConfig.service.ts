@@ -15,7 +15,7 @@ export class NbConfigService {
     token: string;
     reChanged = new Subject<NbConfig[]>();
     nbConfigs: NbConfig[] = [];
-    private nbConfig: NbConfig
+    nbConfig: NbConfig;
 
     constructor(
         private http: HttpClient,
@@ -125,5 +125,9 @@ export class NbConfigService {
             this.uiService.loadingStateChanged.next(false);
             this.uiService.showSnackbar(error.error.errors[0].detail,null,3000)
         })
+    }
+
+    onEditConfig(nbConfig: NbConfig) {
+        this.nbConfig = nbConfig;
     }
 }

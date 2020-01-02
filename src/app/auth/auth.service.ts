@@ -97,7 +97,7 @@ export class AuthService {
         this.authChange.next(false);
         localStorage.removeItem('accessToken');
         localStorage.removeItem('currentUser');
-        this.router.navigate(['/login']);
+        this.router.navigate(['/allConfig']);
     }
 
     getUser() {
@@ -112,6 +112,6 @@ export class AuthService {
         localStorage.setItem('accessToken', token);
         localStorage.setItem('currentUser', name);
         this.authChange.next(true);
-        this.router.navigate(['/nbConfig']);
+        this.router.navigate(['/allConfig']);
     }
 }
