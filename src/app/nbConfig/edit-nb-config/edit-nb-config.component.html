@@ -24,7 +24,8 @@
        <input
              matInput
              placeholder="Device Id"
-             formControlName="deviceId">
+             formControlName="deviceId"
+             [readonly]="true">
        <mat-error *ngIf="form.get('deviceId').hasError('required')">Field must not be empty</mat-error>
    </mat-form-field>
 
@@ -63,6 +64,13 @@
              formControlName="parseField">
        <mat-error *ngIf="form.get('parseField').hasError('required')">Field must not be empty</mat-error>
    </mat-form-field>
+    <mat-form-field >
+        <input
+            matInput
+            placeholder="Parse Jar Path"
+            formControlName="parseJarPath">
+        <mat-error *ngIf="form.get('parseJarPath').hasError('required')">Field must not be empty</mat-error>
+    </mat-form-field>
    <mat-form-field >
        <input
               matInput

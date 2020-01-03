@@ -36,12 +36,13 @@ export class EditNbConfigComponent implements OnInit {
   ngOnInit() {
     this.nbConfig = this.nbConfigService.nbConfig;
     this.form = new FormGroup({
-      deviceId: new FormControl({value: this.nbConfig.deviceId,disabled: true}, [Validators.required]),
+      deviceId: new FormControl(this.nbConfig.deviceId, [Validators.required]),
       gatewayId: new FormControl(this.nbConfig.gatewayId, [Validators.required]),
       serviceType: new FormControl(this.nbConfig.serviceType, [Validators.required]),
       serviceId: new FormControl(this.nbConfig.serviceId, [Validators.required]),
       isParsing: new FormControl(this.nbConfig.isParsing, [Validators.required]),
       parseField: new FormControl(this.nbConfig.parseField, [Validators.required]),
+      parseJarPath: new FormControl(this.nbConfig.parseJarPath, [Validators.required]),
       parseJarClass: new FormControl(this.nbConfig.parseJarClass, [Validators.required]),
       parseJarMethod: new FormControl(this.nbConfig.parseJarMethod, [Validators.required]),
       isBaseDecode: new FormControl(this.nbConfig.isBaseDecode, [Validators.required]),
@@ -63,6 +64,7 @@ export class EditNbConfigComponent implements OnInit {
   }
 
   onSubmit(form: FormGroup){
+    console.log("edit config");
     console.log(form);
     this.nbConfig = {
       deviceId: form.value.deviceId,
@@ -71,6 +73,7 @@ export class EditNbConfigComponent implements OnInit {
       serviceId: form.value.serviceId,
       isParsing: form.value.isParsing,
       parseField: form.value.parseField,
+      parseJarPath: form.value.parseJarPath,
       parseJarClass: form.value.parseJarClass,
       parseJarMethod: form.value.parseJarMethod,
       isBaseDecode: form.value.isBaseDecode,

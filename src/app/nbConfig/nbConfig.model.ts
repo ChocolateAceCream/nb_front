@@ -5,6 +5,7 @@ export interface NbConfig {
     serviceId: string; 
     isParsing: string;
     parseField: string;
+    parseJarPath: string;
     parseJarClass: string;
     parseJarMethod: string;
     isBaseDecode: string;

@@ -61,6 +61,7 @@ export class NbConfigService {
         data.append("serviceId", nbConfigData.nbConfig.serviceId);
         data.append("isParsing", nbConfigData.nbConfig.isParsing);
         data.append("parseField", nbConfigData.nbConfig.parseField);
+        data.append("parseJarPath", nbConfigData.nbConfig.parseJarPath);
         data.append("parseJarClass", nbConfigData.nbConfig.parseJarClass);
         data.append("parseJarMethod", nbConfigData.nbConfig.parseJarMethod);
         data.append("isBaseDecode", nbConfigData.nbConfig.isBaseDecode);
@@ -144,6 +145,7 @@ export class NbConfigService {
         data.append("serviceId", nbConfigData.nbConfig.serviceId);
         data.append("isParsing", nbConfigData.nbConfig.isParsing);
         data.append("parseField", nbConfigData.nbConfig.parseField);
+        data.append("parseJarPath", nbConfigData.nbConfig.parseJarPath);
         data.append("parseJarClass", nbConfigData.nbConfig.parseJarClass);
         data.append("parseJarMethod", nbConfigData.nbConfig.parseJarMethod);
         data.append("isBaseDecode", nbConfigData.nbConfig.isBaseDecode);
@@ -184,25 +186,6 @@ export class NbConfigService {
     updateNbConfigWithoutFile(nbConfig: NbConfig){
         this.token = localStorage.getItem('accessToken');
         let url=GlobalVariable.base_path;
-        var data = new FormData();
-        data.append("deviceId", nbConfig.deviceId);
-        data.append("gatewayId", nbConfig.gatewayId);
-        data.append("serviceType", nbConfig.serviceType);
-        data.append("serviceId", nbConfig.serviceId);
-        data.append("isParsing", nbConfig.isParsing);
-        data.append("parseField", nbConfig.parseField);
-        data.append("parseJarClass", nbConfig.parseJarClass);
-        data.append("parseJarMethod", nbConfig.parseJarMethod);
-        data.append("isBaseDecode", nbConfig.isBaseDecode);
-        data.append("storageFields", nbConfig.storageFields);
-        data.append("isCallback", nbConfig.isCallback);
-        data.append("appId", nbConfig.appId);
-        data.append("method", nbConfig.method);
-        data.append("callbackUrl", nbConfig.callbackUrl);
-        data.append("maxRetransmit", nbConfig.maxRetransmit);
-        data.append("expireTime", nbConfig.expireTime);
-        data.append("callbackFieldsKey", nbConfig.callbackFieldsKey);
-        data.append("callbackFieldsValues", nbConfig.callbackFieldsValues);
         this.uiService.loadingStateChanged.next(true);
         const httpOptions = {
             headers: new HttpHeaders({
@@ -213,7 +196,7 @@ export class NbConfigService {
         };
         this.http.post(
             `${url}/rest/config/updateConfigWithoutFile`,
-            data,
+            nbConfig,
             httpOptions
         ).toPromise()
         .then(result => {

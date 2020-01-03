@@ -65,6 +65,13 @@
         <mat-form-field >
             <input
                    matInput
+                  placeholder="Parse Jar Path"
+                  formControlName="parseJarPath">
+            <mat-error *ngIf="form.get('parseJarPath').hasError('required')">Field must not be empty</mat-error>
+        </mat-form-field>
+        <mat-form-field >
+            <input
+                   matInput
                   placeholder="Parse Jar Class"
                   formControlName="parseJarClass">
             <mat-error *ngIf="form.get('parseJarClass').hasError('required')">Field must not be empty</mat-error>

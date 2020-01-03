@@ -33,6 +33,7 @@ export class NewNbConfigComponent implements OnInit, OnDestroy {
             serviceId: new FormControl('', [Validators.required]),
             isParsing: new FormControl('', [Validators.required]),
             parseField: new FormControl('', [Validators.required]),
+            parseJarPath: new FormControl('', [Validators.required]),
             parseJarClass: new FormControl('', [Validators.required]),
             parseJarMethod: new FormControl('', [Validators.required]),
             isBaseDecode: new FormControl('', [Validators.required]),
@@ -55,6 +56,7 @@ export class NewNbConfigComponent implements OnInit, OnDestroy {
 
     onSubmit(form: FormGroup){
         console.log(form);
+        let fileArray = form.value.file.files[0];
         //this.name = localStorage.getItem('currentUser');
         this.nbConfigData = {
             // name: this.name,
@@ -68,6 +70,7 @@ export class NewNbConfigComponent implements OnInit, OnDestroy {
                 serviceId: form.value.serviceId,
                 isParsing: form.value.isParsing,
                 parseField: form.value.parseField,
+                parseJarPath: form.value.parseJarPath,
                 parseJarClass: form.value.parseJarClass,
                 parseJarMethod: form.value.parseJarMethod,
                 isBaseDecode: form.value.isBaseDecode,

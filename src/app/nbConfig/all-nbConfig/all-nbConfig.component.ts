@@ -19,6 +19,7 @@ export class AllNbConfigComponent implements OnInit,AfterViewInit {
         'serviceId',
         'isParsing',
         'parseField',
+        'parseJarPath',
         'parseJarClass',
         'parseJarMethod',
         'isBaseDecode',

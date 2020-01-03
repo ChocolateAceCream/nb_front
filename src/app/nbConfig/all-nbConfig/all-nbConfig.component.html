@@ -44,6 +44,10 @@
         <mat-header-cell *matHeaderCellDef mat-sort-header>Parse Field</mat-header-cell>
         <mat-cell *matCellDef="let element">{{ element.parseField}}</mat-cell>
     </ng-container>
+    <ng-container matColumnDef="parseJarPath">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Parse Jar Path</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element.parseJarPath}}</mat-cell>
+    </ng-container>
     <ng-container matColumnDef="parseJarClass">
         <mat-header-cell *matHeaderCellDef mat-sort-header>Parse Jar Class</mat-header-cell>
         <mat-cell *matCellDef="let element">{{ element.parseJarClass}}</mat-cell>
