@@ -21,7 +21,6 @@ export class NewNbConfigComponent implements OnInit, OnDestroy {
     form: FormGroup;
 
     constructor(
-        private router: Router,
         private uiService: UIService,
         private nbConfigService: NbConfigService
     ) { }
@@ -85,7 +84,7 @@ export class NewNbConfigComponent implements OnInit, OnDestroy {
             file: form.value.file.files[0]
         };
         this.nbConfigService.newNbConfig(this.nbConfigData);
-        this.router.navigate(['/allConfig']);
+        
     }
 
     ngOnDestroy() {

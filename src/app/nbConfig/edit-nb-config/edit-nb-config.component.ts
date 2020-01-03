@@ -5,6 +5,7 @@ import { NbConfig } from '../nbConfig.model';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UIService } from '../../shared/ui.service';
+import { NbFile } from '../nbFile.model';
 
 @Component({
   selector: 'app-edit-nb-config',
@@ -15,6 +16,7 @@ export class EditNbConfigComponent implements OnInit {
 
   private onEditConfigSubscription: Subscription;
   private nbConfig: NbConfig;
+  nbConfigData: NbFile;
 
 
   isLoading = false;
@@ -34,7 +36,7 @@ export class EditNbConfigComponent implements OnInit {
   ngOnInit() {
     this.nbConfig = this.nbConfigService.nbConfig;
     this.form = new FormGroup({
-      deviceId: new FormControl(this.nbConfig.deviceId, [Validators.required]),
+      deviceId: new FormControl({value: this.nbConfig.deviceId,disabled: true}, [Validators.required]),
       gatewayId: new FormControl(this.nbConfig.gatewayId, [Validators.required]),
       serviceType: new FormControl(this.nbConfig.serviceType, [Validators.required]),
       serviceId: new FormControl(this.nbConfig.serviceId, [Validators.required]),
@@ -60,5 +62,48 @@ export class EditNbConfigComponent implements OnInit {
 
   }
 
+  onSubmit(form: FormGroup){
+    console.log(form);
+    this.nbConfig = {
+      deviceId: form.value.deviceId,
+      gatewayId: form.value.gatewayId,
+      serviceType: form.value.serviceType,
+      serviceId: form.value.serviceId,
+      isParsing: form.value.isParsing,
+      parseField: form.value.parseField,
+      parseJarClass: form.value.parseJarClass,
+      parseJarMethod: form.value.parseJarMethod,
+      isBaseDecode: form.value.isBaseDecode,
+      storageFields: form.value.storageFields,
+      isCallback: form.value.isCallback,
+      appId: form.value.appId,
+      method: form.value.method,
+      callbackUrl: form.value.callbackUrl,
+      maxRetransmit: form.value.maxRetransmit,
+      expireTime: form.value.expireTime,
+      callbackFieldsKey: form.value.callbackFieldsKey,
+      callbackFieldsValues: form.value.callbackFieldsValues
+    }
+    //this.name = localStorage.getItem('currentUser');
+    if (form.value.file.length != 0){
+      this.nbConfigData = {
+        // name: this.name,
+        // seat: form.value.seat,
+        // date: form.value.startingDate.toString(),
+        // duration: form.value.duration
+        nbConfig: this.nbConfig,
+        file: form.value.file.files[0]
+      };
+      this.nbConfigService.updateNbConfigWithFile(this.nbConfigData);
+    } else {
+      this.nbConfigService.updateNbConfigWithoutFile(this.nbConfig);
+    }
+    this.router.navigate(['/allConfig']);
+  }
 
+  ngOnDestroy() {
+      if (this.loadingSubs) {
+          this.loadingSubs.unsubscribe();
+      }
+  }
 }
